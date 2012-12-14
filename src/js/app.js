@@ -2,9 +2,7 @@
   /**
    * Shortcuts
    */
-  var app;
-  app = window.imageWall;
-  console.log(app, window.imageWall);
+  var app = window.imageWall;
 
   app.view.MainView = Backbone.View.extend({
     el: '#imageWall',
@@ -12,6 +10,5 @@
       console.log('init');
     },
   });
-  console.log(window.imageWall);
   window.imageWall.routes(app);
 })();

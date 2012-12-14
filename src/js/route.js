@@ -9,6 +9,7 @@
         '': 'index',
       },
       index: function() {
+        app.collection.pictures = new app.collection.Pictures();
         app.view.mainView = new app.view.MainView();
       },
     });
