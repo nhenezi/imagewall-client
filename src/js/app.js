@@ -1,11 +1,4 @@
 (function() {
-  window.imageWall = {
-    view: {},
-    model: {},
-    route: {},
-    collection: {},
-  };
-
   /**
    * Shortcuts
    */
@@ -19,20 +12,6 @@
       console.log('init');
     },
   });
-
-  /**
-   * Routes
-   */
-  var Router;
-  Router = Backbone.Router.extend({
-    routes: {
-      '': 'index',
-    },
-    index: function() {
-      app.view.mainView = new app.view.MainView();
-    },
-  });
-  var routes = new Router();
-  Backbone.history.start();
-
+  console.log(window.imageWall);
+  window.imageWall.routes(app);
 })();
