@@ -12,7 +12,7 @@
       id: null,
       name: '',
       path: '',
-      timestamp: '',
+      time: '',
     },
   });
 })()
