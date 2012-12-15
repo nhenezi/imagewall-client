@@ -23,7 +23,10 @@
         update: true,
         remove: false,
         success: function(c) {
-          app.collection.pictures.trigger('update', last);
+          var pictures = (last && _.filter(app.collection.pictures.models, function(picture) {
+            return picture.id < last;
+          })) || app.collection.pictures.models;
+          app.collection.pictures.trigger('loadMore', pictures);
         },
       });
     },

@@ -9,17 +9,14 @@
     initialize: function() {
       _.bindAll(this);
       app.collection.pictures.on('update', this.addPictures);
+      app.collection.pictures.on('loadMore', this.addPictures);
     },
 
 
     /**
      * Appends array of pictures (and creates a view for each one)
      */
-    addPictures: function(last) {
-      var pictures = (last && _.filter(app.collection.pictures.models, function(picture) {
-        return picture.id < last;
-      })) || app.collection.pictures.models;
-
+    addPictures: function(pictures) {
       _.each(pictures, function(picture) {
         this.addPicture(picture);
       }, this);
