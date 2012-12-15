@@ -12,7 +12,7 @@
         app.collection.pictures.fetch({
           update: true,
           success: function(c) {
-            app.collection.pictures.trigger('update', 0);
+            app.collection.pictures.trigger('update');
           }
         });
       },

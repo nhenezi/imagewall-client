@@ -15,10 +15,12 @@
     /**
      * Appends array of pictures (and creates a view for each one)
      */
-    addPictures: function(last, a, b) {
-      _.each(_.filter(app.collection.pictures.models, function(picture) {
-        return picture.id > last;
-      }), function(picture) {
+    addPictures: function(last) {
+      var pictures = (last && _.filter(app.collection.pictures.models, function(picture) {
+        return picture.id < last;
+      })) || app.collection.pictures.models;
+
+      _.each(pictures, function(picture) {
         this.addPicture(picture);
       }, this);
     },
