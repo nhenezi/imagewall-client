@@ -24,13 +24,23 @@
     },
 
     /**
-     * creates a view.Picture for picture model and appends it to #imageWall
+     * Creates a view.Picture for picture model and appends it to #imageWall
      */
     addPicture: function(picture) {
       picture.view = new app.view.Picture({model: picture});
       picture.view.render();
       this.$el.append(picture.view.$el);
     },
+
+    /**
+     * Creates a view.Picture for picture model and prepends it to #imageWall
+     */
+    prependPicture: function(picture) {
+      picture.view = new app.view.Picture({model: picture});
+      picture.view.render();
+      this.$el.prepend(picture.view.$el);
+    },
+
   });
 
   window.imageWall.routes(app);
