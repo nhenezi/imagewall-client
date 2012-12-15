@@ -8,7 +8,6 @@
     el: '#imageWall',
     initialize: function() {
       _.bindAll(this);
-      console.log(this);
       app.collection.pictures.on('update', this.addPictures);
     },
 
@@ -16,8 +15,10 @@
     /**
      * Appends array of pictures (and creates a view for each one)
      */
-    addPictures: function(pictures) {
-      _.each(pictures.models, function(picture) {
+    addPictures: function(last, a, b) {
+      _.each(_.filter(app.collection.pictures.models, function(picture) {
+        return picture.id > last;
+      }), function(picture) {
         this.addPicture(picture);
       }, this);
     },
