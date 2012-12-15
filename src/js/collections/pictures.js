@@ -35,7 +35,9 @@
     },
 
     getMore: function() {
-      var last = this.getLast().id || '0';
+      var last = (_.min(app.collection.pictures.models, function(picture) {
+        return picture.id;
+      })).id
       this.fetch({
         url: 'http://localhost/bcc/server/index.php/picture/getBefore/' +
           last + '/1',
