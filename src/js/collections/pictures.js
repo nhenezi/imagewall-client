@@ -15,7 +15,7 @@
       return _.last(this.models);
     },
 
-    getNew: function() {
+    loadMore: function() {
       var last = this.getLast().id || '0';
       this.fetch({
         url: 'http://localhost/bcc/server/index.php/picture/getAfter/' +
