@@ -11,17 +11,14 @@
     <div class="subnav">
       <ul class="nav nav-pills" id="main-menu">
         <li><a href="#">Search by tag:</a></li>
-        <li class="active"><a href="#women">#women</a></li>
-        <li><a href="#debian">#debian</a></li>
-        <li><a href="#fun">#fun</a></li>
-        <li><a href="#cars">#cars</a></li>
-        <li><a href="#animals">#animal</a></li>
-        <li><a href="#minimal">#minimal</a></li>
       </ul>
     </div>
   </header>
   <div id="imageWall">
   </div>
+  <footer>
+    <a href="#" class="btn" id="load-more">Load More</a>
+  </footer>
   <!-------------------------
       Underscore templates
     --------------------------->
@@ -31,7 +28,7 @@
     </div>
   </script>
   <script type="text/template" id="template-menu-button">
-    <li><a href="#<%=name%>"><%=name%></a></li>
+    <a href="#<%=name%>"><%=name%></a>
   </script>
   <script src="../static/js/jquery.js"></script>
   <script src="../static/js/underscore.js"></script>

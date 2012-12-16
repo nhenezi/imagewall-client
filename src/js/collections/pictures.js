@@ -12,18 +12,18 @@
 
     initialize: function() {
       this.tag = '';
-      this.intervals  = app.helpers.Interval;
+      this.intervals = jQuery.extend({}, app.helpers.Interval);
     },
 
     init: function() {
       this.intervals.clearAll();
       app.collection.pictures.fetch({
-        url: 'http://localhost/bcc/server/index.php/picture/getLatest/1/' + app.collection.pictures.tag,
+        url: 'http://localhost/bcc/server/index.php/picture/getLatest/10/' + app.collection.pictures.tag,
         success: function(c) {
           app.collection.pictures.trigger('loadMore', c.models);
           app.collection.pictures.intervals.make(function() {
             app.collection.pictures.getNew();
-          }, 1000)
+          }, 5000)
         }
       });
     },
@@ -52,7 +52,7 @@
       })).id
       this.fetch({
         url: 'http://localhost/bcc/server/index.php/picture/getBefore/' +
-          last + '/1/' + app.collection.pictures.tag,
+          last + '/10/' + app.collection.pictures.tag,
         update: true,
         remove: false,
         success: function(c) {

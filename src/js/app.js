@@ -10,14 +10,17 @@
       _.bindAll(this);
       app.collection.pictures.on('update', this.prependPictures);
       app.collection.pictures.on('loadMore', this.addPictures);
+      $('#load-more').on('click', function(e) {
+        e.preventDefault();
+        app.collection.pictures.getMore();
+      });
     },
-
 
     /**
      * Appends array of pictures (and creates a view for each one)
      */
     addPictures: function(pictures) {
-      console.log(pictures);
+      console.log('adding new pictures', pictures);
       _.each(pictures, function(picture) {
         this.addPicture(picture);
       }, this);

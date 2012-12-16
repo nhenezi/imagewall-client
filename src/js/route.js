@@ -12,6 +12,11 @@
           app.view.mainView.remove();
           app.view.mainView = null;
         }
+        if (app.view.menu === undefined) {
+          app.collection.tags = new app.collection.Buttons();
+          app.collection.tags.init();
+          app.view.menu = new app.view.Menu();
+        }
         app.collection.pictures = new app.collection.Pictures();
         app.view.mainView = new app.view.MainView();
         app.collection.pictures.tag = tag;
