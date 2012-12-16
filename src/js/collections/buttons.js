@@ -11,7 +11,7 @@
     model: app.model.Button,
 
     initialize: function() {
-      this.intervals = jQuery.extend({}, app.helpers.Interval);
+      this.intervals = app.helpers.clone(app.helpers.Interval)
     },
 
     init: function() {

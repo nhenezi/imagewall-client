@@ -12,7 +12,7 @@
 
     initialize: function() {
       this.tag = '';
-      this.intervals = jQuery.extend({}, app.helpers.Interval);
+      this.intervals = app.helpers.clone(app.helpers.Interval)
     },
 
     init: function() {
