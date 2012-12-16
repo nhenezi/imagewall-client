@@ -10,6 +10,7 @@
 
     initialize: function() {
       _.bindAll(this);
+      this.model.on('destroy', this.remove);
     },
 
     render: function() {

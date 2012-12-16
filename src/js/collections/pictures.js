@@ -9,7 +9,10 @@
    */
   app.collection.Pictures = Backbone.Collection.extend({
     model: app.model.Picture,
-    url: 'http://localhost/bcc/server/index.php/picture/getLatest/1',
+
+    initialize: function() {
+      this.tag = '';
+    },
 
     getLast: function() {
       return _.last(this.models);
@@ -21,7 +24,7 @@
       })).id;
       this.fetch({
         url: 'http://localhost/bcc/server/index.php/picture/getAfter/' +
-          last + '/1',
+          last + '/1/' + app.collection.pictures.tag,
         update: true,
         remove: false,
         success: function(c) {
@@ -40,7 +43,7 @@
       })).id
       this.fetch({
         url: 'http://localhost/bcc/server/index.php/picture/getBefore/' +
-          last + '/1',
+          last + '/1/' + app.collection.pictures.tag,
         update: true,
         remove: false,
         success: function(c) {

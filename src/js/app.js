@@ -51,6 +51,12 @@
       this.$el.prepend(picture.view.$el);
     },
 
+    /**
+     * Overwrites default remove functionality
+     */
+    remove: function() {
+      this.$el.html('');
+    },
   });
 
   window.imageWall.routes(app);

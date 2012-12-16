@@ -4,13 +4,19 @@
     Router = Backbone.Router.extend({
       routes: {
         '': 'index',
+        ':tag': 'filterByTag',
       },
 
-      index: function() {
+      init: function(tag) {
+        if (app.view.mainView) {
+          app.view.mainView.remove();
+          app.view.mainView = null;
+        }
         app.collection.pictures = new app.collection.Pictures();
         app.view.mainView = new app.view.MainView();
+        app.collection.pictures.tag = tag;
         app.collection.pictures.fetch({
-          update: true,
+          url: 'http://localhost/bcc/server/index.php/picture/getLatest/1/' + app.collection.pictures.tag,
           success: function(c) {
             app.collection.pictures.trigger('loadMore', c.models);
             setInterval(function() {
@@ -18,6 +24,15 @@
             }, 10000)
           }
         });
+
+      },
+
+      index: function() {
+        this.init('');
+      },
+
+      filterByTag: function(tag) {
+        this.init(tag);
       },
     });
     var routes = new Router();
