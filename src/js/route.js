@@ -15,7 +15,7 @@
             app.collection.pictures.trigger('loadMore', c.models);
             setInterval(function() {
               app.collection.pictures.getNew();
-            }, 2000)
+            }, 10000)
           }
         });
       },

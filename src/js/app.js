@@ -36,7 +36,6 @@
      * Prepends array of pictures (and creates a view for each one)
      */
     prependPictures: function(pictures) {
-      console.log(pictures);
       _.each(pictures, function(picture) {
         this.prependPicture(picture);
       }, this);

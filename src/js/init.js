@@ -5,4 +5,5 @@
     route: {},
     collection: {},
   };
+  $.ajaxSetup({cache: false});
 })();
