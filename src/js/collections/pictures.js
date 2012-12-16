@@ -12,10 +12,20 @@
 
     initialize: function() {
       this.tag = '';
+      this.intervals  = app.helpers.Interval;
     },
 
-    getLast: function() {
-      return _.last(this.models);
+    init: function() {
+      this.intervals.clearAll();
+      app.collection.pictures.fetch({
+        url: 'http://localhost/bcc/server/index.php/picture/getLatest/1/' + app.collection.pictures.tag,
+        success: function(c) {
+          app.collection.pictures.trigger('loadMore', c.models);
+          app.collection.pictures.intervals.make(function() {
+            app.collection.pictures.getNew();
+          }, 1000)
+        }
+      });
     },
 
     getNew: function() {
@@ -34,7 +44,6 @@
           app.collection.pictures.trigger('update', pictures);
         },
       });
-
     },
 
     getMore: function() {

@@ -15,16 +15,7 @@
         app.collection.pictures = new app.collection.Pictures();
         app.view.mainView = new app.view.MainView();
         app.collection.pictures.tag = tag;
-        app.collection.pictures.fetch({
-          url: 'http://localhost/bcc/server/index.php/picture/getLatest/1/' + app.collection.pictures.tag,
-          success: function(c) {
-            app.collection.pictures.trigger('loadMore', c.models);
-            setInterval(function() {
-              app.collection.pictures.getNew();
-            }, 10000)
-          }
-        });
-
+        app.collection.pictures.init();
       },
 
       index: function() {
