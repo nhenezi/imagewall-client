@@ -18,7 +18,8 @@
     init: function() {
       this.intervals.clearAll();
       app.collection.pictures.fetch({
-        url: 'http://localhost/bcc/server/index.php/picture/getLatest/10/' + app.collection.pictures.tag,
+        url: app.properties.url + 'index.php/picture/getLatest/10/' + app.collection.pictures.tag,
+
         success: function(c) {
           app.collection.pictures.trigger('loadMore', c.models);
           app.collection.pictures.intervals.make(function() {
@@ -33,7 +34,7 @@
         return picture.id;
       })).id;
       this.fetch({
-        url: 'http://localhost/bcc/server/index.php/picture/getAfter/' +
+        url: app.properties.url + 'index.php/picture/getAfter/' +
           last + '/1/' + app.collection.pictures.tag,
         update: true,
         remove: false,
@@ -51,7 +52,7 @@
         return picture.id;
       })).id
       this.fetch({
-        url: 'http://localhost/bcc/server/index.php/picture/getBefore/' +
+        url: app.properties.url + 'index.php/picture/getBefore/' +
           last + '/10/' + app.collection.pictures.tag,
         update: true,
         remove: false,
