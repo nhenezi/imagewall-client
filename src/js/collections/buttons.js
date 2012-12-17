@@ -12,6 +12,8 @@
 
     initialize: function() {
       this.intervals = app.helpers.clone(app.helpers.Interval)
+      this.intervals.intervals = null;
+      this.intervals.intervals = {};
     },
 
     /**

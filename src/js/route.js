@@ -20,7 +20,12 @@
         app.collection.pictures = new app.collection.Pictures();
         app.view.mainView = new app.view.MainView();
         app.collection.pictures.tag = tag;
-        app.collection.pictures.init();
+        if (app.collection.pictures === undefined) {
+          app.collection.pictures.init();
+        }
+        else {
+          app.collection.pictures.loadInit();
+        }
       },
 
       index: function() {

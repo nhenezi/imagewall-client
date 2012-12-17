@@ -12,11 +12,13 @@
 
     initialize: function() {
       this.tag = '';
-      this.intervals = app.helpers.clone(app.helpers.Interval)
+      this.intervals = app.helpers.clone(app.helpers.Interval);
+      this.intervals.intervals = null;
+      this.intervals.intervals = {};
     },
     
     /**
-     * Fetches initial set of pictures
+     * Starts long polling
      */
     init: function() {
       this.intervals.clearAll();
@@ -31,6 +33,19 @@
         }
       });
     },
+
+    /**
+     * Fetches initial set of pictures
+     */
+    loadInit: function() {
+      app.collection.pictures.fetch({
+        url: app.properties.url + 'index.php/picture/getLatest/10/' + app.collection.pictures.tag,
+        success: function(c) {
+          app.collection.pictures.trigger('loadMore', c.models);
+        }
+      });
+    },
+
 
     /**
      * Fetches new pictures

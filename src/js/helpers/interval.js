@@ -26,7 +26,7 @@
      * clear a single interval
      */
     clear: function (id) {
-      return clearInterval( this.intervals[id] );
+      return clearInterval(this.intervals[id]);
     },
 
     /**
