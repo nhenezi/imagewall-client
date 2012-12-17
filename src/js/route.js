@@ -26,7 +26,6 @@
       index: function() {
         this.init('');
       },
-
       filterByTag: function(tag) {
         this.init(tag);
       },

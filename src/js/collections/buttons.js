@@ -14,6 +14,9 @@
       this.intervals = app.helpers.clone(app.helpers.Interval)
     },
 
+    /**
+     * Fetches initial set of tags
+     */
     init: function() {
       this.intervals.clearAll();
       app.collection.tags.fetch({
@@ -27,6 +30,9 @@
       });
     },
 
+    /**
+     * Fetches new tags
+     */
     getNew: function() {
       var last = (_.max(app.collection.tags.models, function(tag) {
         return tag.id;
@@ -36,6 +42,7 @@
         update: true,
         remove: false,
         success: function(c) {
+          // filter only new tags
           var tags = _.filter(app.collection.tags.models, function(tag) {
             return tag.id > last;
           });

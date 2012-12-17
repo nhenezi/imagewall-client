@@ -14,7 +14,10 @@
       this.tag = '';
       this.intervals = app.helpers.clone(app.helpers.Interval)
     },
-
+    
+    /**
+     * Fetches initial set of pictures
+     */
     init: function() {
       this.intervals.clearAll();
       app.collection.pictures.fetch({
@@ -29,6 +32,9 @@
       });
     },
 
+    /**
+     * Fetches new pictures
+     */
     getNew: function() {
       var last = (_.max(app.collection.pictures.models, function(picture) {
         return picture.id;
@@ -47,6 +53,9 @@
       });
     },
 
+    /**
+     * Fetches more pictures
+     */
     getMore: function() {
       var last = (_.min(app.collection.pictures.models, function(picture) {
         return picture.id;
