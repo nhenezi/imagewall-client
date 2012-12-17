@@ -1,5 +1,5 @@
 (function() {
-  /**
+  /*
    * Shortcuts
    */
   var app = window.imageWall;
@@ -62,5 +62,5 @@
     },
   });
 
-  window.imageWall.routes(app);
+
 })();

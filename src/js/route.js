@@ -17,13 +17,16 @@
           app.collection.tags.init();
           app.view.menu = new app.view.Menu();
         }
-        app.collection.pictures = new app.collection.Pictures();
-        app.view.mainView = new app.view.MainView();
-        app.collection.pictures.tag = tag;
         if (app.collection.pictures === undefined) {
+          app.collection.pictures = new app.collection.Pictures();
+          app.view.mainView = new app.view.MainView();
+          app.collection.pictures.tag = tag;
           app.collection.pictures.init();
         }
         else {
+          app.collection.pictures = new app.collection.Pictures();
+          app.view.mainView = new app.view.MainView();
+          app.collection.pictures.tag = tag;
           app.collection.pictures.loadInit();
         }
       },
@@ -38,4 +41,6 @@
     var routes = new Router();
     Backbone.history.start();
   };
+
+  window.imageWall.routes(window.imageWall);
 })();
