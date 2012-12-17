@@ -10,6 +10,7 @@
   window.imageWall.model.Button = Backbone.Model.extend({
     defaults: {
       name: '',
+      active: 0,
     },
   });
 })()

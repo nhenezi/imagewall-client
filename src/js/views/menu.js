@@ -16,6 +16,10 @@
     prependButtons: function(tags) {
       _.each(tags, function(tag) {
         this.prependButton(tag);
+        // color active tag
+        if (tag.get('name') == app.collection.pictures.tag) {
+          tag.trigger('makeActive');
+        };
       }, this);
     },
 
@@ -32,10 +36,28 @@
     initialize: function() {
       _.bindAll(this);
       this.model.on('destroy', this.remove);
+      this.model.on('changeActive', this.makeInactive);
+      this.model.on('makeActive', this.makeActive);
     },
 
     render: function() {
       this.$el.html(this.template(this.model.toJSON()));
+    },
+
+    makeInactive: function() {
+      this.$el.removeClass('active');
+    },
+
+    makeActive: function() {
+      console.log('active');
+      _.each(app.collection.tags.models, function(tag) {
+        tag.trigger('changeActive');
+      });
+      this.$el.addClass('active');
+    },
+
+    events: {
+      'click': 'makeActive',
     },
   });
 })();
