@@ -37,7 +37,7 @@
     /**
      * Fetches initial set of pictures
      */
-    loadInit: function() {
+    getInitial: function() {
       app.collection.pictures.fetch({
         url: app.properties.url + 'index.php/picture/getLatest/10/' + app.collection.pictures.tag,
         success: function(c) {
