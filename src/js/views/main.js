@@ -14,6 +14,14 @@
         e.preventDefault();
         app.collection.pictures.getMore();
       });
+
+			// infinite scrolling
+			$(window).scroll(function () {
+				if($(window).scrollTop() + $(window).height() == $(document).height()) {
+					console.log("bottom");
+					app.collection.pictures.getMore();
+				}
+			});
     },
 
     /**
@@ -61,6 +69,4 @@
       this.$el.html('');
     },
   });
-
-
 })();
