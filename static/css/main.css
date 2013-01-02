@@ -1,4 +1,4 @@
-header, footer {text-align: center;}
+header     {text-align: center;}
 #imageWall {padding: 0px 20px; padding-top: 30px;}
 .picture   {display: inline-block; border-radius: 4px 4px 4px 4px; box-shadow: 0 1px 3px #000000;
             background: none repeat scroll 0 0 #0A0A0A; border: 1px solid #292929;margin: 10px 13px 13px 10px;}
