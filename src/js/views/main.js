@@ -9,19 +9,15 @@
     initialize: function() {
       _.bindAll(this);
       app.collection.pictures.on('update', this.prependPictures);
-      app.collection.pictures.on('loadMore', this.addPictures);
-      $('#load-more').on('click', function(e) {
-        e.preventDefault();
-        app.collection.pictures.getMore();
-      });
+      app.collection.pictures.on('loadInit', this.addPictures);
+      app.collection.pictures.on('add', this.addPicture);
 
-			// infinite scrolling
-			$(window).scroll(function () {
-				if($(window).scrollTop() + $(window).height() == $(document).height()) {
-					console.log("bottom");
-					app.collection.pictures.getMore();
-				}
-			});
+      // infinite scrolling
+      $(window).scroll(function () {
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+          app.collection.pictures.getMore();
+        }
+      });
     },
 
     /**
