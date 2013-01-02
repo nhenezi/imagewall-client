@@ -39,9 +39,6 @@
     getInitial: function() {
       app.collection.pictures.fetch({
         url: app.properties.url + 'index.php/picture/getLatest/10/' + app.collection.pictures.tag,
-        success: function(c) {
-          app.collection.pictures.trigger('loadInit', c.models);
-        }
       });
     },
 
@@ -58,6 +55,7 @@
           last + '/1/' + app.collection.pictures.tag,
         update: true,
         remove: false,
+        silent: true,
         success: function(c) {
           var pictures = _.filter(app.collection.pictures.models, function(picture) {
             return picture.id > last;

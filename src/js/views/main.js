@@ -9,7 +9,7 @@
     initialize: function() {
       _.bindAll(this);
       app.collection.pictures.on('update', this.prependPictures);
-      app.collection.pictures.on('loadInit', this.addPictures);
+      app.collection.pictures.on('reset', this.addPictures);
       app.collection.pictures.on('add', this.addPicture);
 
       // infinite scrolling
@@ -21,17 +21,18 @@
     },
 
     /**
-     * Appends array of pictures (and creates a view for each one)
+     * Appends pictures (and creates a view for each one)
+     * @param pictures collection.Pictures
      */
     addPictures: function(pictures) {
-      console.log('adding new pictures', pictures);
-      _.each(pictures, function(picture) {
+      _.each(pictures.models, function(picture) {
         this.addPicture(picture);
       }, this);
     },
 
     /**
      * Creates a view.Picture for picture model and appends it to #imageWall
+     * @param picture model.Picture
      */
     addPicture: function(picture) {
       picture.view = new app.view.Picture({model: picture});
@@ -51,6 +52,7 @@
 
     /**
      * Creates a view.Picture for picture model and prepends it to #imageWall
+     * @param picture model.Picture
      */
     prependPicture: function(picture) {
       picture.view = new app.view.Picture({model: picture});
