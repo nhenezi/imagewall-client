@@ -21,11 +21,18 @@
     --------------------------->
   <script type="text/template" id="template-picture">
     <div class="image-wrapper">
-      <img src="<%=path%>" width="200px" />
+      <img src="<%=path%>" width="200px" class="gallery"/>
     </div>
   </script>
   <script type="text/template" id="template-menu-button">
     <a href="#<%=name%>"><%=name%></a>
+  </script>
+  <script type="text/template" id="template-gallery">
+		<div id="bg">
+      <div id="wrapper">
+        <img src="<%=src%>" />
+      </div>
+		</div>
   </script>
   <script src="../static/js/jquery.js"></script>
   <script src="../static/js/underscore.js"></script>
@@ -33,6 +40,7 @@
   <script src="js/init.js"></script>
   <script src="js/helpers/interval.js"></script>
   <script src="js/helpers/object.js"></script>
+  <script src="js/helpers/gallery.js"></script>
   <script src="js/models/picture.js"></script>
   <script src="js/models/button.js"></script>
   <script src="js/collections/pictures.js"></script>
