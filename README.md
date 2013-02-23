@@ -1,4 +1,5 @@
-This is client (web) part of ImageWall application for Best Code Challenge 2012.
+# ImageWall
+test
 
 # Structure overview
 * static/ - contains static files; libraries, stylesheets, images
@@ -6,4 +7,8 @@ This is client (web) part of ImageWall application for Best Code Challenge 2012.
 
 # src/
 * index.html - main html file; entry point. Contains underscore templates.
-* js - javascript part of application
+* js - javascript part of application, split into
+** collections
+** helpers
+** models
+** views

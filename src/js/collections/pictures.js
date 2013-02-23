@@ -23,7 +23,7 @@
     init: function() {
       this.intervals.clearAll();
       app.collection.pictures.fetch({
-        url: app.properties.url + 'index.php/picture/getLatest/10/' + app.collection.pictures.tag,
+        url: app.properties.url + '/picture/getLatest/10/' + app.collection.pictures.tag,
 
         success: function(c) {
           app.collection.pictures.intervals.make(function() {
@@ -38,7 +38,7 @@
      */
     getInitial: function() {
       app.collection.pictures.fetch({
-        url: app.properties.url + 'index.php/picture/getLatest/10/' + app.collection.pictures.tag,
+        url: app.properties.url + '/picture/getLatest/10/' + app.collection.pictures.tag,
       });
     },
 
@@ -51,7 +51,7 @@
         return picture.id;
       })).id;
       this.fetch({
-        url: app.properties.url + 'index.php/picture/getAfter/' +
+        url: app.properties.url + '/picture/getAfter/' +
           last + '/1/' + app.collection.pictures.tag,
         update: true,
         remove: false,
@@ -73,7 +73,7 @@
         return picture.id;
       })).id;
       this.fetch({
-        url: app.properties.url + 'index.php/picture/getBefore/' +
+        url: app.properties.url + '/picture/getBefore/' +
           last + '/10/' + app.collection.pictures.tag,
         update: true,
         remove: false,

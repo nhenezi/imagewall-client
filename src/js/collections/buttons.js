@@ -22,7 +22,7 @@
     init: function() {
       this.intervals.clearAll();
       app.collection.tags.fetch({
-        url: app.properties.url + 'index.php/tag/getNewest',
+        url: app.properties.url + '/tag/getNewest',
         success: function(c) {
           app.collection.tags.trigger('loadMenu', c.models);
           app.collection.tags.intervals.make(function() {
@@ -40,7 +40,7 @@
         return tag.id;
       })).id;
       this.fetch({
-        url: app.properties.url + 'index.php/tag/getNewer/' + last,
+        url: app.properties.url + '/tag/getNewer/' + last,
         update: true,
         remove: false,
         success: function(c) {

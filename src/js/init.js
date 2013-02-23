@@ -6,7 +6,7 @@
     collection: {},
     helpers: {},
     properties: {
-      url: 'http://localhost/bcc/server/',
+      url: 'serverUrl',
     },
   };
   $.ajaxSetup({cache: false});
