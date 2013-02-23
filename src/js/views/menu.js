@@ -13,7 +13,7 @@
      *
      * It's not read from database and requires special care :)
      */
-    
+
     initialize: function() {
       _.bindAll(this);
       app.collection.tags.on('loadMenu', this.prependButtons);
